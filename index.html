@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-    Massively by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html lang="en">
 <head>
     <title>Olaolu Motojesi Website</title>
@@ -26,16 +21,13 @@
                Take a look at my work and let’s see how I can help you make smarter moves with data <a href="https://linkedin.com/in/olaolu-motojesi-ds" target="_blank" rel="noopener noreferrer">@olaolu-motojesi</a>.
             </p>
             <ul class="actions">
-    <li>
-        <a href="mailto:ennyjezzy07@gmail.com?subject=Website%20Inquiry&body=Hello%20Motojesi%2C%0A%0AI%20visited%20your%20portfolio%20and%20would%20like%20to%20connect." class="button primary">
-            Get in Touch
-        </a>
-    </li>
-    <li>
-        <a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a>
-    </li>
-</ul>
-
+                <li>
+                    <a href="#contact" class="button primary">Get in Touch</a>
+                </li>
+                <li>
+                    <a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a>
+                </li>
+            </ul>
         </div>
 
         <!-- Header -->
@@ -63,10 +55,10 @@
         </div>
 
         <!-- Footer -->
-        <footer id="footer" style="padding-top: 2em;" >
+        <footer id="footer" style="padding-top: 2em;">
             <section id="contact" class="split contact">
                 <section>
-                    <form method="post" action="#">
+                    <form id="contact-form" onsubmit="sendEmail(); return false;">
                         <div class="fields">
                             <div class="field">
                                 <label for="name">Name</label>
@@ -114,6 +106,20 @@
     </div>
 
     <!-- Scripts -->
+    <script>
+        function sendEmail() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            const subject = encodeURIComponent("Website Inquiry from " + name);
+            const body = encodeURIComponent(`Hello Motojesi,\n\n${message}\n\nFrom: ${name} (${email})`);
+
+            const mailtoLink = `mailto:ennyjezzy07@gmail.com?subject=${subject}&body=${body}`;
+
+            window.location.href = mailtoLink;
+        }
+    </script>
     <script src="/Motojesi-portfolio/assets/js/jquery.min.js"></script>
     <script src="/Motojesi-portfolio/assets/js/jquery.scrollex.min.js"></script>
     <script src="/Motojesi-portfolio/assets/js/jquery.scrolly.min.js"></script>
